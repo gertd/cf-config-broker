@@ -1,0 +1,13 @@
+---
+applications:
+- name: cf-config-broker
+  mem: 64M
+  instances: 1
+  host: cf-config-broker
+  command: "cf-config-broker -config=cf-config.broker.json"
+  stackato:
+    env:
+      GOVERSION:
+        default: 1.4
+    ignores:
+    - .git

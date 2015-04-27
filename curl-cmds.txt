@@ -1,0 +1,36 @@
+[app] 2015-04-27T03:53:11.000Z: {"timestamp":"1430106791.354405165","source":"cf-config-broker","message":"cf-config-broker.provision-called","log_level":1,"data":{"instanceId":"4bdeb069-aa69-4ecd-95f8-78331989b35e","serviceDetails":{"service_id":"b6844738-382b-4a9e-9f80-2ff5049d512f","plan_id":"fb740fd7-2029-467a-9256-63ecd882f11c","organization_guid":"28f779c9-24b0-4e3a-bd32-85e6eec1eaaa","space_guid":"1e03b04e-de8b-405f-a50e-11e7b261d7bf"}}}
+
+[app] 2015-04-27T04:01:41.000Z: {"timestamp":"1430107301.252423286","source":"cf-config-broker","message":"cf-config-broker.bind-called","log_level":1,"data":{"bindingId":"dd3fd821-d4bb-489a-8f57-d6c30053a350","instanceId":"4bdeb069-aa69-4ecd-95f8-78331989b35e"}}
+
+curl -H "X-Broker-API-Version: 2.4" http://username:password@cf-config-broker.hcf000.helion-dev.com/v2/catalog
+
+curl http://username:password@cf-config-broker.hcf000.helion-dev.com/v2/service_instances/:instance_id -d '{
+  "service_id":        "b6844738-382b-4a9e-9f80-2ff5049d512f",
+  "plan_id":           "fb740fd7-2029-467a-9256-63ecd882f11c",
+  "organization_guid": "org-guid-here",
+  "space_guid":        "space-guid-here"
+}' -X PUT -H "X-Broker-API-Version: 2.4" -H "Content-Type: application/json"
+
+curl http://username:password@cf-config-broker.hcf000.helion-dev.com/v2/service_instances/:instance_id/service_bindings/:binding_id -d '{
+  "plan_id":        "fb740fd7-2029-467a-9256-63ecd882f11c",
+  "service_id":     "b6844738-382b-4a9e-9f80-2ff5049d512f",
+  "app_guid":       "app-guid-here"
+}' -X PUT -H "X-Broker-API-Version: 2.4" -H "Content-Type: application/json"
+
+
+
+curl -H "X-Broker-API-Version: 2.4" http://username:password@localhost:3000/v2/catalog
+
+curl http://username:password@localhost:3000/v2/service_instances/:instance_id -d '{
+  "service_id":        "b6844738-382b-4a9e-9f80-2ff5049d512f",
+  "plan_id":           "fb740fd7-2029-467a-9256-63ecd882f11c",
+  "organization_guid": "org-guid-here",
+  "space_guid":        "space-guid-here"
+}' -X PUT -H "X-Broker-API-Version: 2.4" -H "Content-Type: application/json"
+
+curl http://username:password@localhost:3000/v2/service_instances/:instance_id/service_bindings/:binding_id -d '{
+  "plan_id":        "fb740fd7-2029-467a-9256-63ecd882f11c",
+  "service_id":     "b6844738-382b-4a9e-9f80-2ff5049d512f",
+  "app_guid":       "app-guid-here"
+}' -X PUT -H "X-Broker-API-Version: 2.4" -H "Content-Type: application/json"
+

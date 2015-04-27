@@ -1,0 +1,98 @@
+{
+    "listeningAddr": ":3000",
+    "logLevel": "debug",
+    "brokerCredentials": {
+        "username": "username",
+        "password": "password"
+    },
+    "serviceCatalog": [
+        {
+            "id": "b6844738-382b-4a9e-9f80-2ff5049d512f",
+            "name": "mssql",
+            "description": "Microsoft SQL Server",
+            "bindable": true,
+            "plans": [
+                {
+                    "id": "fb740fd7-2029-467a-9256-63ecd882f11c",
+                    "name": "free",
+                    "description": "Microsoft SQL Server 2012 R2",
+                    "metadata": {
+                        "bullets": [],
+                        "displayName": "mssql"
+                    }
+                }
+            ],
+            "metadata": {
+                "displayName": "",
+                "longDescription": "",
+                "documentationUrl": "",
+                "supportUrl": "",
+                "listing": {
+                    "burlb": "",
+                    "imageUrl": ""
+                },
+                "provider": {
+                    "name": "cf-config-broker"
+                }
+            },
+            "tags": [
+                "mssql",
+                "relational"
+            ]
+        },
+        {
+            "id": "b6844738-382b-4a9e-9f80-2ff5049d512e",
+            "name": "oradb",
+            "description": "Orcale Database Server",
+            "bindable": true,
+            "plans": [
+                {
+                    "id": "fb740fd7-2029-467a-9256-63ecd882f11b",
+                    "name": "free",
+                    "description": "Oracle 11G Database Server",
+                    "metadata": {
+                        "bullets": [
+                            "public"
+                        ],
+                        "displayName": "oradb"
+                    }
+                }
+            ],
+            "metadata": {
+                "displayName": "",
+                "longDescription": "",
+                "documentationUrl": "",
+                "supportUrl": "",
+                "listing": {
+                    "burlb": "",
+                    "imageUrl": ""
+                },
+                "provider": {
+                    "name": "cf-config-broker"
+                }
+            },
+            "tags": [
+                "oradb",
+                "relational"
+            ]
+        }
+    ],
+    "bindingCredentials": {
+        "b6844738-382b-4a9e-9f80-2ff5049d512f": {
+            "database": "mssql-dbname",
+            "host": "mssql-host",
+            "password": "mssql-pass",
+            "port": 1433,
+            "uri": "mssql://mssqluser:msqlpass@mssql-host:1433/mssql-dbname",
+            "username": "mssql-user"
+        },
+        "b6844738-382b-4a9e-9f80-2ff5049d512e": {
+            "database": "ora-dbname",
+            "host": "ora-host",
+            "password": "ora-pass",
+            "port": 1521,
+            "uri": "ora://ora-user:ora-pass@ora-host:1521/ora-dbname",
+            "username": "ora-user"
+        }
+    }
+}

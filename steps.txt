@@ -1,0 +1,46 @@
+### Steps to deploy and use the cf-config-broker ###
+
+
+###DEPLOY STEPS###
+
+# deploy the broker as a regular CF application
+helion push -n
+
+# create a service broker instance
+helion add-service-broker cf-config-broker
+
+# Inputs
+## Enter url: http://cf-config-broker.hcf.helion-dev.com
+## Enter username: username
+## Enter password: password
+
+# show services
+helion services
+
+# update plan to become public
+helion update-service-plan --vendor mssql --public free
+helion update-service-plan --vendor oradb --public free
+
+# create service instance for each flavor
+helion create-service mssql mssql-db
+helion create-service oradb oracle-db
+
+# before binding to go-env show output of environment block, especially VCAP_SERVICES
+
+# create binding
+helion bind-service oracle-db go-env
+helion bind-service mssql-db go-env
+
+
+###CLEANUP STEPS###
+helion unbind-service mssql-db go-env
+helion unbind-service oracle-db go-env
+
+helion delete-service mssql-db
+helion delete-service oracle-db
+
+helion remove-service-broker cf-config-broker
+
+helion delete cf-config-broker
+
+
