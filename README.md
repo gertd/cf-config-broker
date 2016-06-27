@@ -48,4 +48,5 @@ Removing the cf-config-broker
     ```cf delete-service-broker cf-config-broker -f```
 
 4.  Delete the service broker service (app)
-    cf delete cf-config-broker -f
+
+    ```cf delete cf-config-broker -f```
