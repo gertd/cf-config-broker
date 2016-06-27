@@ -1,2 +1,0 @@
-web: cf-config-broker
-

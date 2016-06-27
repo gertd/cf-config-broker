@@ -11,11 +11,13 @@
             "name": "mssql",
             "description": "Microsoft SQL Server",
             "bindable": true,
+            "plan_updateable": false,
             "plans": [
                 {
                     "id": "fb740fd7-2029-467a-9256-63ecd882f11c",
-                    "name": "free",
+                    "name": "default",
                     "description": "Microsoft SQL Server 2012 R2",
+                    "free": true,
                     "metadata": {
                         "bullets": [],
                         "displayName": "mssql"
@@ -23,7 +25,7 @@
                 }
             ],
             "metadata": {
-                "displayName": "",
+                "displayName": "MSSQL",
                 "longDescription": "",
                 "documentationUrl": "",
                 "supportUrl": "",
@@ -45,11 +47,13 @@
             "name": "oradb",
             "description": "Orcale Database Server",
             "bindable": true,
+            "plan_updateable": false,
             "plans": [
                 {
                     "id": "fb740fd7-2029-467a-9256-63ecd882f11b",
-                    "name": "free",
+                    "name": "default",
                     "description": "Oracle 11G Database Server",
+                    "free": true,
                     "metadata": {
                         "bullets": [
                             "public"
@@ -79,20 +83,21 @@
     ],
     "bindingCredentials": {
         "b6844738-382b-4a9e-9f80-2ff5049d512f": {
+            "username": "mssql-user",
+            "password": "mssql-pass",
             "database": "mssql-dbname",
             "host": "mssql-host",
-            "password": "mssql-pass",
             "port": 1433,
-            "uri": "mssql://mssqluser:msqlpass@mssql-host:1433/mssql-dbname",
-            "username": "mssql-user"
+            "uri": "mssql://mssql-user:msql-pass@mssql-host:1433/mssql-dbname",
+            "odbc-connectionstring": "Driver={SQL Server Native Client 11.0};Server=mssql-host:1433;Database=mssql-dbname;Uid=mssql-user;Pwd=mssql-pass;"
         },
         "b6844738-382b-4a9e-9f80-2ff5049d512e": {
-            "database": "ora-dbname",
-            "host": "ora-host",
+            "username": "ora-user",
             "password": "ora-pass",
+            "catalog": "ora-catatlog-name",
+            "host": "ora-host",
             "port": 1521,
-            "uri": "ora://ora-user:ora-pass@ora-host:1521/ora-dbname",
-            "username": "ora-user"
+            "uri": "ora://ora-user:ora-pass@ora-host:1521/ora-catalog-name"
         }
     }
 }
